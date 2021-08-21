@@ -13,7 +13,7 @@ if (process.argv.length <= 2) {
   process.exit(1);
 }
 
-const size = parseInt(process.argv[2]);
+const size = parseInt(process.argv[2], 10);
 
 const row = `${'#'.repeat(size)}\n`;
 const square = row.repeat(size);
