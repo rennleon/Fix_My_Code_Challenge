@@ -1,44 +1,34 @@
 #!/usr/bin/python3
-"""This module defines a Square class"""
+"""
+Module for Square class
+"""
 
 
 class square():
-    """Square class definition"""
+    """Square class"""
+    width = 0
+    height = 0
 
     def __init__(self, *args, **kwargs):
-        """Constructor for squeare instances"""
         for key, value in kwargs.items():
             setattr(self, key, value)
-
-    @property
-    def size(self):
-        """Width proerty method"""
-        return self.__size
-
-    @size.setter
-    def size(self, value):
-        """"Width property setter"""
-        if type(value) is not int:
-            raise TypeError('size must be an integer')
-        if value <= 0:
-            raise ValueError('size must be greater than zero')
-        self.__size = value
+        if self.width != self.height:
+            raise ValueError('widht and height must be quals')
 
     def area_of_my_square(self):
         """ Area of the square """
-        return self.size ** 2
+        return self.width * self.width
 
-    def perimeter_of_my_square(self):
-        """Perimeter of the Sqaure"""
-        return self.size * 4
+    def PermiterOfMySquare(self):
+        """Perimeter"""
+        return (self.width * 2) + (self.height * 2)
 
     def __str__(self):
-        """String representation of the square"""
-        return "{}/{}".format(self.size, self.size)
+        return "{}/{}".format(self.width, self.height)
 
 
 if __name__ == "__main__":
-    s = square(size=12)
+    s = square(width=12, height=9)
     print(s)
     print(s.area_of_my_square())
-    print(s.perimeter_of_my_square())
+    print(s.PermiterOfMySquare())
