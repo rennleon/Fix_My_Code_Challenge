@@ -4,13 +4,11 @@
 
 class square():
     """Square class definition"""
-    width = 0
-    height = 0
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, width=0, height=0):
         """Constructor for squeare instances"""
-        for key, value in kwargs.items():
-            setattr(self, key, value)
+        self.width = width
+        self.height = height
 
     def area_of_my_square(self):
         """ Area of the square """
