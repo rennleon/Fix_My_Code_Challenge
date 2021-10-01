@@ -5,10 +5,10 @@
 class square():
     """Square class definition"""
 
-    def __init__(self, width, height):
+    def __init__(self, *args, **kwargs):
         """Constructor for squeare instances"""
-        self.width = width
-        self.height = height
+        for key, value in kwargs.items():
+            setattr(self, key, value)
 
     def __validate(self, value):
         """Data validation for edges"""
