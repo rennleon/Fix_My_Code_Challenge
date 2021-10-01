@@ -10,50 +10,35 @@ class square():
         for key, value in kwargs.items():
             setattr(self, key, value)
 
-    def __validate(self, value):
-        """Data validation for edges"""
-        if type(value) is not int:
-            raise TypeError('Value must be an integer')
-        if value <= 0:
-            raise ValueError('Value must be greater than zero')
-
     @property
-    def width(self):
+    def size(self):
         """Width proerty method"""
-        return self.__width
+        return self.__size
 
-    @width.setter
-    def width(self, value):
+    @size.setter
+    def size(self, value):
         """"Width property setter"""
-        self.__validate(value)
-        self.__width = value
-
-    @property
-    def height(self):
-        """Width proerty method"""
-        return self.__height
-
-    @height.setter
-    def height(self, value):
-        """"Height property setter"""
-        self.__validate(value)
-        self.__height = value
+        if type(value) is not int:
+            raise TypeError('size must be an integer')
+        if value <= 0:
+            raise ValueError('size must be greater than zero')
+        self.__size = value
 
     def area_of_my_square(self):
         """ Area of the square """
-        return self.width * self.height
+        return self.size ** 2
 
     def perimeter_of_my_square(self):
         """Perimeter of the Sqaure"""
-        return (self.width * 2) + (self.height * 2)
+        return self.size * 4
 
     def __str__(self):
         """String representation of the square"""
-        return "{}/{}".format(self.width, self.height)
+        return "{}/{}".format(self.size, self.size)
 
 
 if __name__ == "__main__":
-    s = square(width=12, height=9)
+    s = square(size=12)
     print(s)
     print(s.area_of_my_square())
     print(s.perimeter_of_my_square())
